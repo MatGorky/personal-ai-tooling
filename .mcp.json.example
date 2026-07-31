@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "gdocs": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "./mcps/gdocs-mcp",
+        "run",
+        "-m",
+        "gdocs_mcp"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/absolute/path/to/gcp-service-account.json"
+      }
+    }
+  }
+}

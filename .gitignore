@@ -1,0 +1,36 @@
+# Generated prompts and other skill output — local only.
+# The folder and its README stay tracked; nothing produced inside it does.
+/outputs/*
+!/outputs/README.md
+
+# Secrets — never commit
+.env
+*.env
+service-account*.json
+credentials*.json
+token*.json
+*.pem
+
+# Local machine config (absolute paths, credential locations).
+# .mcp.json.example is the committed template.
+.mcp.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
