@@ -6,10 +6,17 @@
 # Secrets — never commit
 .env
 *.env
-service-account*.json
-credentials*.json
-token*.json
+.env.*
+!.env.example
+*service-account*.json
+*credentials*.json
+*client_secret*.json
+*token*.json
+*-key.json
 *.pem
+*.key
+*.p12
+*.pfx
 
 # Local machine config (absolute paths, credential locations).
 # .mcp.json.example is the committed template.
