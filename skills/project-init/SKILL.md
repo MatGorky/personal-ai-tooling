@@ -83,8 +83,9 @@ and why, and which checks give confidence before calling something done.>
 
 ## Working on this project
 
-- Start by reading **Resume here** in `ROADMAP.md`. Before changing something
-  `DECISIONS.md` covers, read the entry; don't retry a rejected approach without saying so.
+- Start by reading **Resume here** in `ROADMAP.md` and the entry headings in
+  `DECISIONS.md`. Before changing anything a heading covers, read that entry; don't retry
+  a rejected approach without saying so.
 - Write things down when they happen, not at the end: a settled decision goes in
   `DECISIONS.md`; a new blocker or an unverified claim goes in Resume here.
 - Before stopping, rewrite Resume here so the next agent knows the next concrete action.
