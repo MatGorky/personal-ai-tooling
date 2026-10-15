@@ -12,15 +12,25 @@ github.com/mattpocock/skills).
 Run the `grill-me` skill. While it runs, write down each answer the user confirms **as it
 settles**, not in a batch at the end: a session can be cut off at any point.
 
-Read `AGENTS.md` first. If it says where decisions, terms, or plans live, use those
-locations. The defaults below apply when it doesn't.
+Read `AGENTS.md` first. If it sets where decisions, terms, or plans live, or the rules for
+writing them, follow it. The defaults below apply where it doesn't.
 
 ## Decisions → `DECISIONS.md`
 
 Record a decision when losing its reason would plausibly cause repeated investigation, an
-unwanted change, or the same argument again. That includes explicit no's ("we won't
-support X") and constraints the code can't show. Keep each entry proportional: one line
-for a small choice, a paragraph for a big one.
+unwanted change, or the same argument again. Keep each entry proportional: one line for a
+small choice, a paragraph for a big one.
+
+Counts:
+
+- "SQLite, not Postgres: one user and nothing to operate. Rejected: Postgres, because
+  running a server isn't worth it at this scale." (a trade-off)
+- "No multi-monitor support for now." (an explicit no)
+- "Screenshots never leave the machine; OCR runs locally." (a constraint the code can't
+  show)
+
+Doesn't count: picking between equivalent libraries, renames, formatting, routine bug
+fixes, or anything the code or a commit message already explains.
 
 Entry format, newest at the bottom:
 

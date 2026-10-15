@@ -9,8 +9,8 @@ Brings the roadmap, decisions, and any plan files in line with the session. It
 reconciles; it is not the only time docs get written. `AGENTS.md` already tells agents to
 record decisions and blockers as they happen, because sessions get cut off.
 
-Read `AGENTS.md` first. If it says where the roadmap, decisions, terms, or plans live,
-use those locations. The defaults are `ROADMAP.md`, `DECISIONS.md`, `GLOSSARY.md`, and
+Read `AGENTS.md` first. If it sets where the roadmap, decisions, terms, or plans live, or
+the rules for writing them, follow it. The defaults are `ROADMAP.md`, `DECISIONS.md`, `GLOSSARY.md`, and
 `docs/plans/`. If the project has no roadmap at all, stop and suggest `project-init`.
 
 ## 1. Gather
@@ -43,6 +43,17 @@ unwanted change, or the same argument again. Include what was rejected and why: 
 part an agent would otherwise retry. Keep entries proportional: one line for a small
 choice, a paragraph for a big one.
 
+Counts:
+
+- "SQLite, not Postgres: one user and nothing to operate. Rejected: Postgres, because
+  running a server isn't worth it at this scale." (a trade-off)
+- "No multi-monitor support for now." (an explicit no)
+- "Screenshots never leave the machine; OCR runs locally." (a constraint the code can't
+  show)
+
+Doesn't count: picking between equivalent libraries, renames, formatting, routine bug
+fixes, or anything the code or a commit message already explains.
+
 ```markdown
 ## YYYY-MM-DD: <decision in a few words>
 
@@ -59,7 +70,8 @@ If a project-specific term was confused twice this session, add it to the glossa
 ## 5. Close or update plans
 
 For each plan: if the work is done, close it; if it's still going, update it. A plan must
-not contradict Resume here.
+not contradict Resume here. A plan nobody asked for, for work that fits in Now plus
+Resume here, gets folded into the roadmap and closed.
 
 ## 6. Delete safely
 

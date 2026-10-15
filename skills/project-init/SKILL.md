@@ -88,8 +88,15 @@ and why, and which checks give confidence before calling something done.>
 - Write things down when they happen, not at the end: a settled decision goes in
   `DECISIONS.md`; a new blocker or an unverified claim goes in Resume here.
 - Before stopping, rewrite Resume here so the next agent knows the next concrete action.
-- A plan for work spanning several sessions goes in `docs/plans/<slug>.md`. When the work
-  is done, record the outcome in `DECISIONS.md` if it qualifies and delete the plan.
+- **Decisions** are worth recording when losing the reason would cause repeated
+  investigation, an unwanted change, or the same argument again. Not for equivalent
+  library picks, renames, routine bug fixes, or anything the code or a commit message
+  already explains. Format: `## YYYY-MM-DD: <decision>`, then what and why, then
+  `Rejected: <alternative> because <reason>.` Past a paragraph, an entry moves to
+  `docs/decisions/NNN-slug.md` and leaves a one-line pointer.
+- **Plans** go in `docs/plans/<slug>.md`, and only when asked for or when the work can't
+  be tracked in Now plus Resume here. When the work is done, record any decision it
+  produced and delete the plan.
 ```
 
 `ROADMAP.md`:
