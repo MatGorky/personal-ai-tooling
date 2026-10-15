@@ -35,22 +35,28 @@ test. Where it disagrees with this skill, the project wins.
    controlled, data is isolated, and a failure message says what broke. Keep a fast
    suite for development and slower checks for integration confidence.
 6. **Expected values come from the requirement**, or from an example checked
-   independently, never from running the code. Never change an expectation, skip a test,
-   or delete one just to get to green. If the test is wrong, say why before changing it.
+   independently, never from running the code. The one exception is a characterization
+   test (see "Taking over an existing project"), which records observed output and is
+   labeled as current behavior, not approved behavior. Never change an expectation, skip
+   a test, or delete one just to get to green. If the test is wrong, say why before
+   changing it.
 
 Frontend default: mostly tests that render components and drive them the way a user
 does, focused tests for tricky logic, and a few end-to-end tests of critical journeys.
-Backend default: behavior tests through the application against a disposable database,
-focused tests for complex logic, and a few checks of the deployed wiring.
+Backend default: behavior tests through the application (against a disposable database
+when persistence is involved), focused tests for complex logic, and a few checks of the
+deployed wiring.
 
 ## Test-first loop
 
 1. Write one test for the next behavior.
 2. Run it and **watch it fail for the intended reason**. A test that fails on an import
-   error, or passes immediately, proves nothing yet.
+   error, or passes immediately, proves nothing yet. (Characterization tests are the
+   exception: they pass immediately by design.)
 3. Write the least code that makes it pass.
-4. Refactor with the tests green. Tests that break during a refactor that kept behavior
-   intact are testing implementation; fix them per rule 1.
+4. Refactor with the tests green. If a test fails during a refactor, investigate before
+   touching it. Keep the assertion unless you can explain why it depends on an
+   implementation detail rather than promised behavior; then fix it per rule 1 and say so.
 
 Trigger a new test with a new behavior, not with a new class or method.
 
@@ -70,20 +76,26 @@ Keep it to project specifics. Don't copy these rules into it.
 
 ## Taking over an existing project
 
-Don't start by rewriting tests or by writing new code.
+Keep it proportional to the task: start with the behavior you're changing and the tests
+around it, and widen only when failures or uncertainty call for it. A small change
+doesn't need an audit of the whole suite.
 
-1. **Map what exists.** Run the suite. Note what passes, what fails, what's skipped,
-   what's flaky, and what each part actually protects. Note which important behaviors
-   have no tests.
-2. **Pin current behavior before changing it.** Around the code you're about to touch,
-   add *characterization tests* (Michael Feathers' term): tests that record what the code
-   does today, so a change can't silently alter it. Label them as recording current
-   behavior, not as a statement of what's correct. Behavior that looks like a bug gets
-   listed for the user, not pinned as the spec.
-3. **Write the Testing section** with what you learned, then work test-first from there.
+1. **Map what's relevant.** Run the tests that cover the area. Note what passes, fails,
+   is skipped or flaky, and what they actually protect.
+2. **Pin current behavior where nothing protects it.** If the code you're about to touch
+   has no tests that would catch a change, add *characterization tests* (Michael Feathers'
+   term) that record what it does today. Label them as current behavior, not as a
+   statement of what's correct. Behavior that looks like a bug gets listed for the user,
+   not pinned as the spec.
+3. **Write or extend the Testing section** with what you learned, then work test-first
+   from there. New or corrected behavior needs an expectation from the requirement, per
+   rule 6.
 
 ## Reporting
 
 When you say something works, say what verified it: which suite, and whether it ran
-against real dependencies or substitutes. Anything that only a fake or a recording has
-shown goes in Resume here under Unverified.
+against real dependencies or substitutes. A substitute can fully establish some things (a
+controlled clock proves timeout logic) and not others (real scheduling performance).
+When a claim about the real integration is still open, record that specific claim under
+Unverified in Resume here, for example "live key release on focus loss untested". Don't
+list every behavior that was exercised with a substitute.
