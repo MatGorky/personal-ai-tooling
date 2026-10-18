@@ -25,9 +25,9 @@ Counts:
 
 - "SQLite, not Postgres: one user and nothing to operate. Rejected: Postgres, because
   running a server isn't worth it at this scale." (a trade-off)
-- "No multi-monitor support for now." (an explicit no)
-- "Screenshots never leave the machine; OCR runs locally." (a constraint the code can't
-  show)
+- "No offline mode for now." (an explicit no)
+- "User data stays in the EU region; the contract requires it." (a constraint the code
+  can't show)
 
 Doesn't count: equivalent library picks, renames, formatting, bug fixes, and anything the
 code or a commit message already explains. A parameter's value is a comment next to the

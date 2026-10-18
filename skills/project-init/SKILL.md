@@ -49,8 +49,8 @@ lead with a draft built from what you read.
 Don't finish until both are concrete:
 
 - **Goal**: what the project is for, in two or three sentences, including why.
-- **Done when**: an observable condition. "Farms for an hour unattended and reports
-  EXP/hour" is concrete; "a working bot" is not.
+- **Done when**: an observable condition. "A new user signs up, pays, and sees their
+  first report, end to end on a clean database" is concrete; "a working MVP" is not.
 
 Also settle what's explicitly **not** being done. That list is what stops drift.
 
@@ -92,9 +92,9 @@ and why, and which checks give confidence before calling something done.>
 
 ## Patterns
 
-<One line per pattern, naming the file and the aspect to copy: "A new CLI command
-follows `probe` in `src/cli.py` for its dry-run default and countdown." Naming the
-aspect keeps unrelated quirks from spreading. Never paste code here; it drifts from the
+<One line per pattern, naming the file and the aspect to copy: "A new API endpoint
+follows `src/api/orders.py` for its validation and error responses." Naming the aspect
+keeps unrelated quirks from spreading. Never paste code here; it drifts from the
 code within weeks, and the canonical file can't drift from itself. Omit the section
 until there is a file clean enough to copy.>
 
@@ -161,7 +161,7 @@ first modules exist:
 ```markdown
 # Architecture
 
-<The data flow in one line or a small diagram: capture → perception → decision → input.>
+<The data flow in one line or a small diagram: request → validation → service → repository → database.>
 
 ## Modules
 

@@ -49,8 +49,9 @@ agent can act without asking:
 
 Evidence stays out of Resume here: run IDs, measurements, counters, tables, and commands
 to rerun go in the day's run log under `docs/runs/`, and Resume here links it once and
-states the conclusion. "Live OCR verified at level 27 (run log, 2026-10-16)" is a Resume
-here line; the 57 passes and 6 failures behind it are run-log lines.
+states the conclusion. "Import handles the 2 GB export without timing out (run log,
+2026-10-16)" is a Resume here line; the timings, memory figures, and the command that
+produced them are run-log lines.
 
 One writer. In a multi-agent run, only the orchestrator, or the one session the user is
 talking to, rewrites Resume here. Workers append their findings and evidence to the run
@@ -73,16 +74,17 @@ Counts:
 
 - "SQLite, not Postgres: one user and nothing to operate. Rejected: Postgres, because
   running a server isn't worth it at this scale." (a trade-off)
-- "No multi-monitor support for now." (an explicit no)
-- "Screenshots never leave the machine; OCR runs locally." (a constraint the code can't
-  show)
+- "No offline mode for now." (an explicit no)
+- "User data stays in the EU region; the contract requires it." (a constraint the code
+  can't show)
 
 Doesn't count: equivalent library picks, renames, formatting, bug fixes, and anything the
 code or a commit message already explains.
 
 Two cases that look like they don't count but can: a parameter's value goes in a comment
 next to the parameter, but its entry stays when the value is coupled to other limits a
-new agent would break (a frame rate tied to hold timing and processing cost). A rule a
+new agent would break (a batch size tied to the database's statement timeout and the
+worker's memory limit). A rule a
 test enforces keeps its entry when the reason would be re-argued, because the test
 preserves the behavior, not why it was chosen; the entry names the test.
 
